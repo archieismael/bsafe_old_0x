@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.mt</groupId>
-	<artifactId>maven-web-application</artifactId>
+	<artifactId>bsafe</artifactId>
 	<packaging>war</packaging>
 	<version>1.5-SNAPSHOT</version>
 	
@@ -83,7 +83,7 @@
 	
 	
 	<build>
-		<finalName>maven-web-application</finalName>
+		<finalName>bsafe</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
