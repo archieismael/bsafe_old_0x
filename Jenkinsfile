@@ -34,9 +34,9 @@ pipeline {
 					steps {
 							withCredentials([string(credentialsId: 'docker-id', variable: 'docker-id')]) {
 								sh "docker login -u archieismael -p ${docker-id}"
-							}						
+													
 								sh "docker push archieismael/bsafe_demo:001"
-						}
+						} }
 
 					}
 				
