@@ -29,16 +29,15 @@ pipeline {
 				
 			stage ('Push Docker Image') {
 					steps {
-							withCredentials([string(credentialsId: 'docker-hub-pass', variable: 'dockerHubPwd')]) {
-							   sh """
-							   docker login -u archieismael -p ${dockerHubPwd}
-							   """
-							}
-						sh """
-							docker push archieismael/bsafe_demo:001
-						"""
+							withCredentials([string(credentialsId: 'docker-id', variable: 'docker-id')]) {
+								sh "docker login -u archieismael -p ${docker-id}"
+							}						
+								sh """
+									docker push archieismael/bsafe_demo:001
+								"""
+						}
+
 					}
-				}
 				
 		}
 }
