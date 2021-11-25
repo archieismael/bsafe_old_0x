@@ -22,7 +22,7 @@ pipeline {
 			stage ('Build Docker Image') {
 					steps {
 						sh """
-						docker build -t bsafe_demo:001 .
+						docker build -t archieismael/bsafe_demo:001 .
 						"""
 					}
 				}
@@ -32,7 +32,7 @@ pipeline {
 							withCredentials([string(credentialsId: 'docker-id', variable: 'docker-id')]) {
 								sh "docker login -u archieismael -p ${docker-id}"
 							}						
-								sh 'docker push archieismael/bsafe_demo:001'
+								sh "docker push archieismael/bsafe_demo:001"
 						}
 
 					}
