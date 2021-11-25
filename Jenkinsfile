@@ -22,7 +22,7 @@ pipeline {
 			stage ('Build Docker Image') {
 					steps {
 						sh """
-						docker build -t archieismael/bsafe_demo:001 .
+						docker build -t bsafe_demo:001 .
 						"""
 					}
 				}
