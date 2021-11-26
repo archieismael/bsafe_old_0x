@@ -15,5 +15,6 @@
  <h1 align="center">Welcome to Aetna Portal!</h1>
 <h1 align="center">Your leading US healthcare company. November 2021</h1>
 <h2 align="center">Thank you for your visit</h2>
+<h2 align="center">Have a nice day.</h2>
 </body>
 </html>
