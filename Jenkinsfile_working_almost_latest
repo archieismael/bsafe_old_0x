@@ -28,9 +28,7 @@ pipeline{
 		stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .
-				sh 'docker tag $JOB_NAME:v1.$BUILD_ID archieismael/$JOB_NAME:v1.$BUILD_ID'
-				sh 'docker tag $JOB_NAME:v1.$BUILD_ID archieismael/$JOB_NAME:latest'
+				sh 'docker build -t archieismael/bsafe_demo:002 .'
 			}
 		}
 
@@ -39,14 +37,13 @@ pipeline{
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
-				sh 'docker push archieismael/$JOB_NAME:v1.$BUID_ID'
-				sh 'docker push archieismael/$JOB_NAME:latest'
+				sh 'docker push archieismael/bsafe_demo:002'
 			}
 		}
 
 		stage('Pull Docker Build From Repo') {
 			steps {
-				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/$JOB_NAME:latest'
+				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/bsafe_demo:002'
 			}
 		}
 
