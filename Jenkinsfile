@@ -53,6 +53,16 @@ pipeline{
 		                sh 'curl -i http://10.0.0.50:8082/bsafe/'
 			}
 		}
+
+		stage('Test Run Application from Docker Container') {
+			steps {
+				sh "echo 'Removing used docker container'"
+				sh 'sleep 10'
+				sh 'docker container rm $(sudo docker container ls -aq) --force'
+			}
+		}
+
+
 	}
 
 	post {
