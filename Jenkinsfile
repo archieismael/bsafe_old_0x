@@ -46,6 +46,12 @@ pipeline{
 				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/bsafe_demo:002'
 			}
 		}
+
+		stage('Test Run Application from Docker Container') {
+			steps {
+				sh 'curl -i http://10.0.0.50:8082'
+			}
+		}
 	}
 
 	post {
