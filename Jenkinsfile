@@ -54,14 +54,13 @@ pipeline{
 			}
 		}
 
-		stage('Test Run Application from Docker Container') {
+		stage('Removing Docker Container Container') {
 			steps {
 				sh "echo 'Removing used docker container'"
 				sh 'sleep 10'
 				sh 'docker container rm $(sudo docker container ls -aq) --force'
 			}
 		}
-
 
 	}
 
