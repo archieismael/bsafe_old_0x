@@ -58,7 +58,7 @@ pipeline{
 			steps {
 				sh "echo 'Removing used docker container'"
 				sh 'sleep 10'
-				sh 'docker container rm $(sudo docker container ls -aq) --force'
+				sh 'docker container rm $(docker container ls -aq) --force'
 			}
 		}
 
