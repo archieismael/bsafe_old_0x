@@ -45,6 +45,8 @@ pipeline{
 	post {
 		always {
 			sh 'docker logout'
+		    	sh "echo 'Removing used build'"
+		    	sh 'docker remove archieismael/bsafe_demo:002'
 		}
 	}
 
