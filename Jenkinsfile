@@ -8,13 +8,13 @@ pipeline{
 
 	stages {
 
-		stage("Build") {               
+		stage("Maven Project Build") {               
 				steps {                    
 					sh "mvn clean install"               
 				}          
 			}          
 
-		stage('Unit Test') {
+		stage('Project Unit Test') {
 				steps {
 					sh 'mvn test'
 				}
@@ -32,7 +32,7 @@ pipeline{
 			}
 		}
 
-		stage('Docker Login/Push') {
+		stage('Push Docker Build To Repo') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -41,7 +41,7 @@ pipeline{
 			}
 		}
 
-		stage('Docker Run') {
+		stage('Pull Docker Build From Repo') {
 			steps {
 				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/bsafe_demo:002'
 			}
@@ -54,7 +54,7 @@ pipeline{
 			}
 		}
 
-		stage('Removing Docker Container Container') {
+		stage('Removing Docker Container') {
 			steps {
 				sh "echo 'Removing used docker container'"
 				sh 'sleep 10'
