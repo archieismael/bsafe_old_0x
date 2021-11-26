@@ -40,6 +40,12 @@ pipeline{
 				sh 'docker push archieismael/bsafe_demo:002'
 			}
 		}
+
+		stage('Docker Run') {
+			steps {
+				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/bsafe_demo:002'
+			}
+		}
 	}
 
 	post {
