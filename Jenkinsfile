@@ -25,7 +25,7 @@ pipeline{
 				}
 			}
 
-		stage('Build') {
+		stage('Docker Build') {
 
 			steps {
 				sh 'docker build -t archieismael/bsafe_demo:002 .'
