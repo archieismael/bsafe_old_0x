@@ -40,7 +40,7 @@ pipeline{
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				
 				sh 'echo JOBNAME:v1.BUILD_ID: $JOB_NAME:v1.$BUILD_ID'
-				sh 'docker push archieismael/$JOB_NAME:v1.$BUID_ID'
+				sh 'docker push archieismael/$JOB_NAME:v1.$BUILD_ID'
 				sh 'docker push archieismael/$JOB_NAME:latest'
 			}
 		}
