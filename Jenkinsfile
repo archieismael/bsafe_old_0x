@@ -45,6 +45,7 @@ pipeline{
 			}
 		}
 
+
 		stage('Pull Docker Build From Repo') {
 			steps {
 				sh 'docker run -p 8082:8080 -d --name vsafe archieismael/$JOB_NAME:latest'
